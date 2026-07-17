@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <pattern id="checks" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M0 0h40v40H0zM40 40h40v40H40z" fill="#181818"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1200" fill="#262626"/>
+  <rect width="900" height="1200" fill="url(#checks)"/>
+  <circle cx="450" cy="410" r="190" fill="#666"/>
+  <path d="M145 1200V910c0-210 137-333 305-333s305 123 305 333v290z" fill="#555"/>
+  <text x="450" y="1020" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="62" fill="#f4e900">DROP BOY PHOTO HERE</text>
+  <text x="450" y="1095" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" fill="white">public/images/</text>
+</svg>
