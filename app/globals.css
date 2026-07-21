@@ -620,32 +620,32 @@ footer {
 footer p { font-family: Impact, sans-serif; font-size: 18px; letter-spacing: .03em; margin: 0; text-transform: uppercase; }
 footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2em; }
 
-@media (max-width: 719.98px) {
+@media (max-width: 767.98px) {
   .site-header {
     min-height: 42px;
     padding: max(5px, env(safe-area-inset-top)) 10px 5px;
   }
 
   .site-header::after { bottom: -8px; height: 5px; }
-  .wordmark { font-size: clamp(20px, 7vw, 27px); }
-  .tiktok-link { border-width: 1px; box-shadow: 2px 2px 0 var(--red); font-size: 6px; gap: 4px; letter-spacing: .05em; max-width: 132px; padding: 4px 5px; }
-  .tiktok-link svg { flex: 0 0 auto; height: 13px; width: 13px; }
+  .wordmark { font-size: clamp(21px, 7vw, 28px); }
+  .tiktok-link { border-width: 1px; box-shadow: 2px 2px 0 var(--red); font-size: 10px; gap: 4px; letter-spacing: .03em; max-width: 150px; padding: 5px 6px; }
+  .tiktok-link svg { flex: 0 0 auto; height: 14px; width: 14px; }
 
-  .hero { padding: 28px 8px 6px; }
-  .hero-kicker { border-width: 2px; font-size: 7px; padding: 4px 0; top: 10px; }
+  .hero { padding: 28px 8px 5px; }
+  .hero-kicker { border-width: 2px; font-size: 9px; padding: 4px 0; top: 10px; }
   .authority-full { display: none; }
   .authority-short { display: inline; }
-  .eyebrow { font-size: 7px; letter-spacing: .16em; margin: 9px 0 2px; }
-  h1 { font-size: clamp(40px, 14vw, 60px); text-shadow: 3px 3px 0 var(--red), 5px 5px 0 #000; }
-  .hero-subtitle { font-size: 8px; margin-top: 7px; padding: 4px 7px; }
+  .eyebrow { font-size: 10px; letter-spacing: .12em; margin: 9px 0 2px; }
+  h1 { font-size: clamp(44px, 14.5vw, 64px); text-shadow: 3px 3px 0 var(--red), 5px 5px 0 #000; }
+  .hero-subtitle { font-size: 12px; line-height: 1.2; margin-top: 7px; padding: 5px 8px; }
 
   .arena {
     padding: 2px 8px max(36px, env(safe-area-inset-bottom));
   }
 
   .stage {
-    height: clamp(210px, 38dvh, 315px);
-    min-height: 210px;
+    height: clamp(278px, 46dvh, 355px);
+    min-height: 278px;
     position: relative;
   }
 
@@ -656,7 +656,7 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
       right .42s cubic-bezier(.2, .8, .2, 1),
       top .42s cubic-bezier(.2, .8, .2, 1),
       transform .42s cubic-bezier(.2, .8, .2, 1);
-    width: clamp(94px, min(32vw, 18.5dvh), 145px);
+    width: clamp(104px, min(34vw, 20dvh), 154px);
   }
 
   .boy-slot.pyramid-top {
@@ -668,17 +668,17 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
   }
 
   .boy-slot.pyramid-left {
-    left: 12%;
+    left: 9%;
     right: auto;
-    top: 34%;
+    top: 35%;
     transform: rotate(-7deg);
     z-index: 1;
   }
 
   .boy-slot.pyramid-right {
     left: auto;
-    right: 12%;
-    top: 34%;
+    right: 9%;
+    top: 35%;
     transform: rotate(7deg);
     z-index: 1;
   }
@@ -694,12 +694,12 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
   .card-corner { border-width: 2px; font-size: 9px; left: -5px; padding: 3px 5px; top: -7px; }
   .boy-photo { aspect-ratio: 1 / 1.1; }
   .photo-halftone { background-size: 4px 4px; }
-  .boy-name { font-size: clamp(10px, 3vw, 13px); padding: 5px 7px 11px; }
+  .boy-name { font-size: clamp(12px, 3.5vw, 15px); line-height: 1.08; padding: 6px 7px 12px; }
   .assignment-label {
     border-width: 2px;
     bottom: -13px;
     box-shadow: 2px 2px 0 white;
-    font-size: clamp(28px, 9vw, 40px);
+    font-size: clamp(32px, 9.5vw, 43px);
     left: 3%;
     padding: 4px 5px;
     right: 3%;
@@ -707,7 +707,9 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
   .chud-stamp { border-width: 4px; font-size: clamp(20px, 6vw, 30px); padding: 2px 5px; }
 
   .spinner-console {
-    margin: 8px auto 7px;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--black), 7px 7px 0 var(--red);
+    margin: 8px auto 15px;
     max-width: 480px;
     padding: 5px 9px;
     position: relative;
@@ -716,38 +718,39 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
   .spinner-lights { margin-bottom: 4px; }
   .spinner-lights.bottom { margin-top: 4px; }
   .spinner-lights i { border-width: 1px; height: 6px; width: 6px; }
-  .spin-button { border-width: 3px; font-size: clamp(28px, 10vw, 43px); padding: 8px 7px 10px; }
-  .button-topline { font-size: 6px; margin-bottom: 3px; }
-  .verdict-panel { margin-bottom: 7px; min-height: 25px; }
-  .result-announcer { font-size: 8px; min-height: 11px; }
-  .result-headline { font-size: 6px; margin-top: 3px; }
-  .share-row { margin-top: 5px; min-height: 21px; }
-  .share-button { border-width: 1px; font-size: 6px; padding: 4px 6px; }
-  .share-row span { font-size: 6px; }
+  .spin-button { border-width: 3px; font-size: clamp(32px, 10.5vw, 46px); min-height: 58px; padding: 8px 7px 10px; position: relative; z-index: 1; }
+  .button-topline { font-size: 9px; letter-spacing: .12em; margin-bottom: 3px; }
+  .verdict-panel { margin-bottom: 10px; min-height: 38px; padding: 0 8px; position: relative; }
+  .result-announcer { font-size: 12px; letter-spacing: .03em; line-height: 1.25; min-height: 30px; }
+  .result-headline { font-size: 12px; line-height: 1.25; margin-top: 4px; }
+  .share-row { flex-wrap: wrap; margin-top: 7px; min-height: 34px; }
+  .share-button { border-width: 1px; font-size: 12px; line-height: 1.2; min-height: 34px; padding: 6px 9px; }
+  .share-row span { font-size: 12px; line-height: 1.2; }
 
   .scoreboard { border-width: 2px; }
   .scoreboard-title { padding: 6px 9px; }
-  .scoreboard-title strong { font-size: 15px; }
+  .scoreboard-title span { font-size: 10px; letter-spacing: .1em; }
+  .scoreboard-title strong { font-size: 18px; }
   .leaderboard-rows { padding: 4px 9px 1px; }
   .leaderboard-row { gap: 5px; grid-template-columns: 24px minmax(55px, 1fr) auto 36px; min-height: 27px; padding: 2px; }
-  .leaderboard-rank { font-size: 8px; }
-  .leaderboard-row > strong { font-size: 14px; }
-  .leaderboard-row em { font-size: 5px; padding: 3px 4px; }
-  .leaderboard-count { font-size: 20px; }
-  .scoreboard-footnote, .scoreboard-notice { font-size: 5px; margin: 3px 8px 0; }
+  .leaderboard-rank { font-size: 10px; }
+  .leaderboard-row > strong { font-size: 16px; }
+  .leaderboard-row em { font-size: 8px; padding: 3px 4px; }
+  .leaderboard-count { font-size: 24px; }
+  .scoreboard-footnote, .scoreboard-notice { font-size: 9px; line-height: 1.25; margin: 5px 8px 0; }
 
   .merch { padding-block: 42px; }
 }
 
-@media (max-width: 360px), (max-height: 650px) and (max-width: 719.98px) {
+@media (max-width: 360px), (max-height: 650px) and (max-width: 767.98px) {
   .hero { padding-top: 25px; }
   .eyebrow { margin-top: 6px; }
-  .stage { height: clamp(204px, 37dvh, 225px); min-height: 204px; }
-  .boy-slot { width: clamp(91px, min(31vw, 18dvh), 112px); }
+  .stage { height: clamp(278px, 46dvh, 300px); min-height: 278px; }
+  .boy-slot { width: clamp(104px, min(34vw, 19dvh), 118px); }
   .spinner-console { margin-top: 5px; }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 768px) {
   .stage { gap: 20px; grid-template-columns: repeat(3, 1fr); }
   .boy-slot { min-width: 0; }
   .boy-photo { aspect-ratio: 3 / 4; }
