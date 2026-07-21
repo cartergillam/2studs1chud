@@ -3,12 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://2studs1chud.com"),
-  title: "2 Studs 1 Chud | Spin the Boys",
-  description:
-    "Three boys enter. Two studs leave. One is legally recognized as the Chud.",
+  title: "2 Studs 1 Chud",
+  description: "Three boys. Two studs. One chud. Let the Selection Authority decide.",
+  alternates: { canonical: "https://2studs1chud.com" },
   openGraph: {
     title: "2 Studs 1 Chud",
-    description: "Spin the boys. Crown two Studs. Humiliate one Chud.",
+    description: "Three boys. Two studs. One chud. Let the Selection Authority decide.",
     url: "https://2studs1chud.com",
     siteName: "2 Studs 1 Chud",
     type: "website",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "2 Studs 1 Chud",
-    description: "The only randomized authority on Stud-to-Chud allocation.",
+    description: "Three boys. Two studs. One chud. Let the Selection Authority decide.",
     images: ["/opengraph-image"],
   },
 };

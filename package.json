@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint app components next.config.ts postcss.config.mjs eslint.config.mjs"
+    "lint": "eslint app components lib next.config.ts postcss.config.mjs eslint.config.mjs"
   },
   "dependencies": {
+    "@upstash/redis": "^1.38.0",
     "next": "16.2.10",
     "react": "19.2.7",
     "react-dom": "19.2.7"

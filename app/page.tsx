@@ -1,5 +1,6 @@
 import { BoysStage } from "@/components/BoysStage";
 import { MerchTeaser } from "@/components/MerchTeaser";
+import { TikTokLink } from "@/components/TikTokLink";
 
 export default function Home() {
   return (
@@ -10,13 +11,15 @@ export default function Home() {
           <span className="wordmark-one">1</span>
           <span className="wordmark-chud">CHUD</span>
         </a>
-        <span className="broadcast-bug"><i /> LIVE-ish</span>
+        <TikTokLink />
       </header>
 
       <section id="top" className="hero" aria-labelledby="main-title">
         <div className="hero-kicker" aria-hidden="true">
-          <span>★ OFFICIAL BOY ALLOCATION SYSTEM ★</span>
-          <span>★ OFFICIAL BOY ALLOCATION SYSTEM ★</span>
+          <span className="authority-full">★ THE STUD/CHUD SELECTION AUTHORITY ★</span>
+          <span className="authority-short">★ THE SELECTION AUTHORITY ★</span>
+          <span className="authority-full">★ THE STUD/CHUD SELECTION AUTHORITY ★</span>
+          <span className="authority-short">★ THE SELECTION AUTHORITY ★</span>
         </div>
         <p className="eyebrow">The world&apos;s least necessary sporting event</p>
         <h1 id="main-title">
@@ -30,7 +33,7 @@ export default function Home() {
 
       <footer>
         <p>Three boys. Two studs. One legally recognized chud.</p>
-        <span>© {new Date().getFullYear()} THE COMMISSION</span>
+        <span>© {new Date().getFullYear()} THE SELECTION AUTHORITY</span>
       </footer>
     </main>
   );

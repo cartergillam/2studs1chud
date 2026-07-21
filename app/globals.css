@@ -97,24 +97,26 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .wordmark-chud { color: var(--red); text-shadow: 2px 2px 0 var(--black); }
 
-.broadcast-bug {
+.tiktok-link {
   align-items: center;
+  background: var(--black);
   border: 2px solid var(--black);
+  box-shadow: 3px 3px 0 var(--red);
+  color: white;
   display: flex;
   font-size: 10px;
   font-weight: 900;
   gap: 6px;
   letter-spacing: .12em;
   padding: 7px 9px;
+  text-decoration: none;
+  transform: rotate(1deg);
+  transition: background .15s ease, color .15s ease, transform .15s ease;
 }
 
-.broadcast-bug i {
-  animation: livePulse 1.2s infinite;
-  background: var(--red);
-  border-radius: 50%;
-  height: 8px;
-  width: 8px;
-}
+.tiktok-link svg { fill: white; height: 18px; width: 18px; }
+.tiktok-link:hover { background: var(--red); transform: rotate(-1deg) scale(1.02); }
+.tiktok-link:focus-visible { outline: 4px solid white; outline-offset: 3px; }
 
 .hero {
   overflow: hidden;
@@ -149,6 +151,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .hero-kicker span { animation: ticker 13s linear infinite; }
+.authority-short { display: none; }
 
 .eyebrow {
   color: var(--yellow);
@@ -393,22 +396,60 @@ h1 span { color: var(--yellow); }
   text-shadow: none;
 }
 
+.verdict-panel {
+  margin: 0 auto 24px;
+  min-height: 42px;
+  text-align: center;
+}
+
 .result-announcer {
   font-size: 13px;
   font-weight: 900;
   letter-spacing: .06em;
-  margin: 0 auto 28px;
+  margin: 0;
   min-height: 19px;
-  text-align: center;
   text-transform: uppercase;
 }
+
+.result-headline {
+  color: var(--yellow);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  margin: 5px 0 0;
+}
+
+.share-row {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  min-height: 27px;
+}
+
+.share-button {
+  background: white;
+  border: 2px solid var(--yellow);
+  color: var(--black);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 1000;
+  letter-spacing: .1em;
+  padding: 6px 9px;
+  transform: rotate(-1deg);
+}
+
+.share-button:hover { background: var(--yellow); }
+.share-button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.share-row span { color: var(--yellow); font-size: 8px; font-weight: 900; letter-spacing: .08em; }
 
 .scoreboard {
   background: #101010;
   border: 3px solid #464646;
-  display: grid;
   margin: 0 auto;
   max-width: 820px;
+  padding-bottom: 8px;
   position: relative;
 }
 
@@ -432,18 +473,50 @@ h1 span { color: var(--yellow); }
 .scoreboard-title span { font-size: 8px; font-weight: 900; letter-spacing: .16em; }
 .scoreboard-title strong { font-family: Impact, sans-serif; font-size: 22px; font-style: italic; }
 
-.scoreboard-scores { display: grid; grid-template-columns: repeat(3, 1fr); }
-.score { padding: 17px 8px 18px; text-align: center; }
-.score + .score { border-left: 1px solid #3a3a3a; }
-.score span { display: block; font-size: 9px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
-.score strong {
+.leaderboard-rows { padding: 8px 14px 3px; }
+.leaderboard-row {
+  align-items: center;
+  border-bottom: 1px solid #303030;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 35px minmax(80px, 1fr) auto 64px;
+  min-height: 43px;
+  padding: 5px 3px;
+}
+.leaderboard-row:last-child { border-bottom: 0; }
+.leaderboard-rank { color: #8d8d8d; font-family: "Courier New", monospace; font-size: 12px; font-weight: 900; }
+.leaderboard-row > strong { font-family: Impact, sans-serif; font-size: 21px; font-style: italic; letter-spacing: .04em; text-transform: uppercase; }
+.leaderboard-row em {
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 1000;
+  letter-spacing: .1em;
+  padding: 4px 6px;
+  transform: rotate(-1deg);
+}
+.leaderboard-count {
   color: var(--red);
-  display: block;
   font-family: "Courier New", monospace;
-  font-size: clamp(38px, 10vw, 58px);
+  font-size: 31px;
+  font-weight: 900;
   line-height: 1;
+  text-align: right;
   text-shadow: 0 0 12px var(--red);
 }
+
+.scoreboard-footnote,
+.scoreboard-notice {
+  color: #8d8d8d;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  margin: 4px 14px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.scoreboard-notice { color: var(--yellow); }
 
 .merch {
   align-items: center;
@@ -517,8 +590,10 @@ h1 span { color: var(--yellow); }
   transform: rotate(4deg);
   width: 175px;
 }
-.shirt-body span { font-size: 17px; }
-.shirt-body strong { color: var(--red); font-size: 24px; }
+.shirt-body span { font-size: 15px; letter-spacing: .08em; }
+.shirt-verdicts { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-top: 6px; width: 68%; }
+.shirt-verdicts strong { color: white; font-size: 17px; text-align: center; }
+.shirt-verdicts i { display: block; font-family: Arial, sans-serif; font-size: 25px; font-style: normal; line-height: .7; }
 
 .merch button {
   background: var(--black);
@@ -553,11 +628,13 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
 
   .site-header::after { bottom: -8px; height: 5px; }
   .wordmark { font-size: clamp(20px, 7vw, 27px); }
-  .broadcast-bug { border-width: 1px; font-size: 7px; padding: 5px 6px; }
-  .broadcast-bug i { height: 6px; width: 6px; }
+  .tiktok-link { border-width: 1px; box-shadow: 2px 2px 0 var(--red); font-size: 6px; gap: 4px; letter-spacing: .05em; max-width: 132px; padding: 4px 5px; }
+  .tiktok-link svg { flex: 0 0 auto; height: 13px; width: 13px; }
 
   .hero { padding: 28px 8px 6px; }
   .hero-kicker { border-width: 2px; font-size: 7px; padding: 4px 0; top: 10px; }
+  .authority-full { display: none; }
+  .authority-short { display: inline; }
   .eyebrow { font-size: 7px; letter-spacing: .16em; margin: 9px 0 2px; }
   h1 { font-size: clamp(40px, 14vw, 60px); text-shadow: 3px 3px 0 var(--red), 5px 5px 0 #000; }
   .hero-subtitle { font-size: 8px; margin-top: 7px; padding: 4px 7px; }
@@ -641,14 +718,23 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
   .spinner-lights i { border-width: 1px; height: 6px; width: 6px; }
   .spin-button { border-width: 3px; font-size: clamp(28px, 10vw, 43px); padding: 8px 7px 10px; }
   .button-topline { font-size: 6px; margin-bottom: 3px; }
-  .result-announcer { font-size: 8px; margin: 0 auto 9px; min-height: 12px; }
+  .verdict-panel { margin-bottom: 7px; min-height: 25px; }
+  .result-announcer { font-size: 8px; min-height: 11px; }
+  .result-headline { font-size: 6px; margin-top: 3px; }
+  .share-row { margin-top: 5px; min-height: 21px; }
+  .share-button { border-width: 1px; font-size: 6px; padding: 4px 6px; }
+  .share-row span { font-size: 6px; }
 
   .scoreboard { border-width: 2px; }
   .scoreboard-title { padding: 6px 9px; }
-  .scoreboard-title strong { font-size: 17px; }
-  .score { padding: 9px 4px 10px; }
-  .score span { font-size: 7px; }
-  .score strong { font-size: clamp(30px, 9vw, 42px); }
+  .scoreboard-title strong { font-size: 15px; }
+  .leaderboard-rows { padding: 4px 9px 1px; }
+  .leaderboard-row { gap: 5px; grid-template-columns: 24px minmax(55px, 1fr) auto 36px; min-height: 27px; padding: 2px; }
+  .leaderboard-rank { font-size: 8px; }
+  .leaderboard-row > strong { font-size: 14px; }
+  .leaderboard-row em { font-size: 5px; padding: 3px 4px; }
+  .leaderboard-count { font-size: 20px; }
+  .scoreboard-footnote, .scoreboard-notice { font-size: 5px; margin: 3px 8px 0; }
 
   .merch { padding-block: 42px; }
 }
@@ -667,9 +753,7 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
   .boy-photo { aspect-ratio: 3 / 4; }
   .assignment-label { font-size: clamp(42px, 6vw, 76px); }
   .arena { padding-top: 5px; }
-  .scoreboard { grid-template-columns: 210px 1fr; }
-  .scoreboard-title { align-items: flex-start; flex-direction: column; justify-content: center; }
-  .scoreboard-title strong { font-size: 30px; }
+  .scoreboard-title strong { font-size: 27px; }
   .merch { grid-template-columns: minmax(270px, 1fr) 190px 180px; text-align: left; }
   .merch button { justify-self: end; }
 }
@@ -681,7 +765,6 @@ footer span { color: #777; font-size: 8px; font-weight: 900; letter-spacing: .2e
 }
 
 @keyframes ticker { to { transform: translateX(-100%); } }
-@keyframes livePulse { 50% { opacity: .25; } }
 @keyframes scan { to { top: 120%; } }
 @keyframes bulb { 50% { background: white; box-shadow: 0 0 14px white; } }
 @keyframes cardRattle {

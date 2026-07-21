@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
         fontFamily: "Arial Black, sans-serif",
       }}
     >
-      <div style={{ fontSize: 34, letterSpacing: 10, color: "#f4e900" }}>OFFICIAL ALLOCATION SYSTEM</div>
+      <div style={{ fontSize: 30, letterSpacing: 7, color: "#f4e900" }}>THE STUD/CHUD SELECTION AUTHORITY</div>
       <div style={{ display: "flex", alignItems: "center", gap: 28, fontSize: 112, fontWeight: 900 }}>
         <span>2 STUDS</span><span style={{ color: "#f4e900" }}>1</span><span style={{ color: "#ff2b2b" }}>CHUD</span>
       </div>
