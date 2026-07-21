@@ -23,16 +23,19 @@ export function BoysStage() {
   const [chudCounts, setChudCounts] = useState<Record<string, number>>(() =>
     Object.fromEntries(boys.map((boy) => [boy.id, 0])),
   );
+  const spinLock = useRef(false);
   const shuffleTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const finishTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => () => {
+    spinLock.current = false;
     if (shuffleTimer.current) clearInterval(shuffleTimer.current);
     if (finishTimer.current) clearTimeout(finishTimer.current);
   }, []);
 
   function spin() {
-    if (isSpinning) return;
+    if (spinLock.current) return;
+    spinLock.current = true;
     setIsSpinning(true);
     setHasSpun(true);
 
@@ -49,21 +52,33 @@ export function BoysStage() {
       setAssignments(finalAssignments);
       setDisplayAssignments(finalAssignments);
       setChudCounts((counts) => ({ ...counts, [boys[chudIndex].id]: counts[boys[chudIndex].id] + 1 }));
+      spinLock.current = false;
       setIsSpinning(false);
     }, duration);
+  }
+
+  const finalChudIndex = assignments.indexOf("CHUD");
+  const finalStudIndices = boys
+    .map((_, index) => index)
+    .filter((index) => index !== finalChudIndex);
+
+  function pyramidPosition(index: number) {
+    if (index === finalChudIndex) return "pyramid-top";
+    return index === finalStudIndices[0] ? "pyramid-left" : "pyramid-right";
   }
 
   return (
     <section className="arena" aria-label="The boy allocation arena" aria-busy={isSpinning}>
       <div className={`stage ${isSpinning ? "is-spinning" : ""}`}>
         {boys.map((boy, index) => (
-          <BoyCard
-            key={boy.id}
-            boy={boy}
-            assignment={displayAssignments[index]}
-            isSpinning={isSpinning}
-            hasSpun={hasSpun}
-          />
+          <div className={`boy-slot ${pyramidPosition(index)}`} key={boy.id}>
+            <BoyCard
+              boy={boy}
+              assignment={displayAssignments[index]}
+              isSpinning={isSpinning}
+              hasSpun={hasSpun}
+            />
+          </div>
         ))}
       </div>
 
